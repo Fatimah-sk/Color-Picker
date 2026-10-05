@@ -1,0 +1,224 @@
+/* ==============================
+   MAIN BACKGROUND
+================================ */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  padding: 55px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at 10% 20%,
+      #b9a3ff 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      #ffb5e8 0%,
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #c9d9ff,
+      #f5d5f8,
+      #b9caff
+    );
+
+  color: #101942;
+}
+
+
+/* ==============================
+   GLASS CONTAINER
+================================ */
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+
+  background: rgba(255, 255, 255, 0.78);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+
+  box-shadow:
+    0 25px 80px rgba(80, 50, 150, 0.13);
+
+  animation: fadeUp 0.8s ease both;
+}
+
+
+/* ==============================
+   HEADER
+================================ */
+
+.app-header {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.header-icon {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.app-header h1 {
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.app-header h1 span {
+  background: linear-gradient(
+    90deg,
+    #8b5cf6,
+    #ec4899
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.app-header p {
+  margin-top: 10px;
+  color: #70799a;
+  font-size: 16px;
+}
+
+.react-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 10px 17px;
+  border-radius: 30px;
+
+  background: #f3e8ff;
+  color: #7c3aed;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* ==============================
+   WORKSPACE
+================================ */
+
+.workspace {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 25px;
+  align-items: stretch;
+}
+
+
+/* ==============================
+   FOOTER
+================================ */
+
+.app-footer {
+  text-align: center;
+  margin-top: 30px;
+
+  color: #858baa;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* ==============================
+   ANIMATION
+================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 850px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .app-container {
+    padding: 25px;
+  }
+
+  .react-badge {
+    position: static;
+    display: inline-block;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 15px 10px;
+  }
+
+  .app-container {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .app-header {
+    margin-bottom: 30px;
+  }
+}
+
+
+/* ==============================
+   ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ==============================
+   ROOT
+================================ */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
