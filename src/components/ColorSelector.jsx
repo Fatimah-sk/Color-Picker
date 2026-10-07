@@ -1,5 +1,4 @@
-
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './ColorSelector.css';
 
 const quickColors = [
@@ -11,32 +10,30 @@ const quickColors = [
   { name: 'Pink', hex: '#ff75b5' },
 ];
 
-function ColorSelector({ color, onColorChange }) {
- 
+function ColorSelector({ color, onColorChange, onColorPreview }) {
+
   const [hexInput, setHexInput] = useState(color);
 
   useEffect(() => {
     setHexInput(color.toUpperCase());
   }, [color]);
 
-    const handleHexInput = (value) => {
-      setHexInput(value);
+  const handleHexInput = (value) => {
+    setHexInput(value);
 
-      const validHex = /^#[0-9A-Fa-f]{6}$/;
+    const validHex = /^#[0-9A-Fa-f]{6}$/;
 
-      if (validHex.test(value)) {
-        onColorChange(value);
-      }
-    };
-
-  
+    if (validHex.test(value)) {
+      onColorChange(value);
+    }
+  };
 
   return (
     <section className="controls">
 
       <div className="control-card">
         <h3>
-          <span>◈</span> Velg fra meny
+          <span>◈</span> Choose from Menu
         </h3>
 
         <select
@@ -47,14 +44,14 @@ function ColorSelector({ color, onColorChange }) {
           }
           onChange={(e) => onColorChange(e.target.value)}
         >
-            <option value="" disabled>
-              Velg en farge
-            </option>
+          <option value="" disabled>
+            Choose a Color
+          </option>
 
-            {quickColors.map((item) => (
-              <option key={item.hex} value={item.hex}>
-                {item.name}
-              </option>
+          {quickColors.map((item) => (
+            <option key={item.hex} value={item.hex}>
+              {item.name}
+            </option>
           ))}
         </select>
       </div>
@@ -62,11 +59,11 @@ function ColorSelector({ color, onColorChange }) {
       <div className="control-card">
 
         <h3>
-          <span>✎</span> Lag din egen farge
+          <span>✎</span> Create Your Own Color
         </h3>
 
         <p className="control-description">
-          Skriv inn en HEX-kode eller bruk fargepaletten.
+          Enter a HEX code or use the color picker.
         </p>
 
         <div className="hex-input-group">
@@ -81,13 +78,15 @@ function ColorSelector({ color, onColorChange }) {
             }
             aria-label="HEX color code"
           />
-
           <input
             type="color"
             value={color}
-            onChange={(e) =>
-              onColorChange(e.target.value)
-            }
+            onChange={(e) => {
+              onColorPreview(e.target.value);
+            }}
+            onBlur={(e) => {
+              onColorChange(e.target.value);
+            }}
             title="Open color picker"
             aria-label="Choose a custom color"
             className="native-picker"
@@ -96,12 +95,12 @@ function ColorSelector({ color, onColorChange }) {
         </div>
 
         <p className="input-hint">
-          Eksempel: #ff6600
+          Example: #ff6600
         </p>
 
         <div className="quick-colors-header">
           <h3>
-            <span>✧</span> Raske fargevalg
+            <span>✧</span> Quick Colors
           </h3>
         </div>
 

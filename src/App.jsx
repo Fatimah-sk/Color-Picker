@@ -35,6 +35,11 @@ function App() {
     ].slice(0, 14));
   };
 
+  const handleColorPreview = (newColor) => {
+    setColor(newColor.toLowerCase());
+    setCopied(false);
+  };
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(color);
@@ -60,7 +65,7 @@ function App() {
           </h1>
 
           <p>
-            Velg en farge, eller lag din egen!
+            Pick a color or create your own! 
           </p>
 
           <span className="react-badge">
@@ -73,6 +78,7 @@ function App() {
           <ColorSelector
             color={color}
             onColorChange={handleColorChange}
+            onColorPreview={handleColorPreview}
           />
 
           <ColorBox

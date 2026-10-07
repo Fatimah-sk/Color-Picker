@@ -100,8 +100,8 @@
 }
 
 .copy-button:hover {
-  transform: scale(1.1);
   background: #f3e8ff;
+  box-shadow: 0 6px 18px rgba(32, 36, 72, 0.18);
 }
 
 .copy-message {

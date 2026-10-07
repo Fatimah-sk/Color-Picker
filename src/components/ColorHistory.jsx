@@ -7,16 +7,17 @@ function ColorHistory({ history, onSelect, onClear }) {
 
       <div className="history-header">
 
-        <h3>
-          <span>↺</span> Dine siste valgte farger i denne økten.
-        </h3>
+        
+      <h3>
+        <span>↺</span> Your recently selected colors.
+      </h3>        
 
         <button
           className="clear-button"
           onClick={onClear}
           disabled={history.length === 0}
         >
-          Tøm historikk
+          Clear History
         </button>
 
       </div>
@@ -25,7 +26,7 @@ function ColorHistory({ history, onSelect, onClear }) {
 
         {history.length === 0 ? (
           <p className="empty-history">
-            Ingen farger i historikken ennå.
+            No colors in history yet.
           </p>
         ) : (
           history.map((item) => (

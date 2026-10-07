@@ -19,8 +19,8 @@ function ColorBox({ color, name, onCopy, copied }) {
 
       <div className="preview-content">
 
-        <p>VALGT FARGE</p>
-
+       <p>SELECTED COLOR</p>
+       
         <h2>{name}</h2>
 
         <div className="hex-badge">
