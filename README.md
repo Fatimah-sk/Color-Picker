@@ -1,3 +1,5 @@
+![Color Picker Screenshot](image.png)
+
 # 🎨 React Color Picker
 
 A simple color picker built with React.
